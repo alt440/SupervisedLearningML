@@ -1,0 +1,29 @@
+https://www.youtube.com/watch?v=PVTBXIvfDvc&list=PLpEPgC7cUJ4b1ARx8PyIQa_sdZRL2GXw5&index=14
+So you originally have your error function:
+E = 1/2 * (y - t)^2
+d/dy = 2(y-t)/2 = y-t
+And you want to find your partial derivatives of error for all the variables in:
+score = w1 * x1 + w2 * x2 + b
+
+So what you need to do is use the chain rule, which says that if a function is dependent on another, and you want to
+make a partial derivative from those, then use the chain rule.
+So, in our case, the function E is depending on the values in the function score, so we need to use the chain rule.
+The chain rule is:
+d p(q(z))/dz = (dp/dq) * (dq/dz)
+which makes the dq's cancel out, leaving dp/dz
+
+So here are our values:
+q = y - t
+p = 1/2 * (q^2)
+so our partial derivative dp/dq = (y-t)
+
+dq/dz:
+# q = y - t
+However, in our other function, q is different and corresponds to:
+q = y = A(z) --> our normalized score
+
+Now the reason we need to redo it is because (y-t) is a function that was contained within the E function. Thus, we need to do it once to get (y-t) and then again with respect to y to give us y' which is A'(z).
+
+Then we need to do the partial derivative from the perspective of w1 of our score function, which gives us x1. Thus, it gives us:
+(y-t)*A'(z)*x1 = d/dw1
+
